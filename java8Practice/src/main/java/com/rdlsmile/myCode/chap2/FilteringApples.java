@@ -74,7 +74,7 @@ public class FilteringApples {
     public static void main(String...args){
         List<Apple> test = new ArrayList<>();
         test.add(new Apple("red",1,1));
-        test.add(new Apple("greed",2,2));
+        test.add(new Apple("greed",20,20));
         test.add(new Apple("red",3,3));
         test.add(new Apple("yellow",4,4));
         //测试lamdba表达式
@@ -83,6 +83,14 @@ public class FilteringApples {
         //测试匿名内部类
         result = filterApples(test);
         System.out.println(result);
+
+        //java8 List 自带了sort
+        test.sort((Apple a1 , Apple a2) -> a1.getWeight().compareTo(a2.getWeight()));
+        System.out.println(test);
+
+        //线程里使用lamdba表达式
+        Thread r = new Thread(() -> System.out.println("Hello World"));
+        r.start();
     }
 
 
