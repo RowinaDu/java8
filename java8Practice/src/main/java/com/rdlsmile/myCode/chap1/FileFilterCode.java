@@ -8,7 +8,7 @@ import java.io.FileFilter;
 
 public class FileFilterCode {
 
-    public static void main(String ... args){
+    public static void main(String[] args){
         //原先的方法
         File[] hiddenFile = new File(".").listFiles(new FileFilter(){
             public boolean accept(File file){

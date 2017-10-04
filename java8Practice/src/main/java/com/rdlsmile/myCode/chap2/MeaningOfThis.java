@@ -17,7 +17,7 @@ public class MeaningOfThis {
         };
         r.run();
     }
-    public static void main(String...args){
+    public static void main(String[] args){
         MeaningOfThis m = new MeaningOfThis();
         m.doIt();
     }

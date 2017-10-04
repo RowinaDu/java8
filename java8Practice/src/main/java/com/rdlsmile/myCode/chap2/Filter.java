@@ -26,7 +26,7 @@ public class Filter {
     }
 
     //测试
-    public static void main(String...args){
+    public static void main(String[] args){
         List<Apple> test = new ArrayList<>();
         test.add(new Apple("red",1,1));
         test.add(new Apple("greed",2,2));
