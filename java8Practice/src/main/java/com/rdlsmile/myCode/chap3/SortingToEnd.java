@@ -2,6 +2,12 @@ package com.rdlsmile.myCode.chap3;
 
 import com.rdlsmile.myCode.base.Apple;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+import static java.util.Comparator.comparing;
+
 
 /**
  * Created by Administrator on 2017/10/5.
@@ -44,11 +50,42 @@ public class SortingToEnd {
     三个参数的构造函数,java没有提供需要自己定义，参照下面code
      */
 
+
+    // 第一种排序方案
+    public static class AppleComparator implements Comparator<Apple> {
+        public int compare(Apple a1, Apple a2){
+            return a1.getWeight().compareTo(a2.getWeight());
+        }
+    }
     public static void main(String[] args) {
         //三个参数的构造函数
         TriFunction<String, Integer, Integer, Apple> appleFactory = Apple::new;
         Apple a = appleFactory.apply("red",1,2);
         System.out.println(a);
+
+        // 第一种排序方案
+        List<Apple> list = new ArrayList<>();
+        list.add(a);
+        list.sort(new AppleComparator());
+
+        //第二种排序方案（使用匿名内部类）
+        list.sort(new Comparator<Apple>() {
+            @Override
+            public int compare(Apple a1, Apple a2) {
+                return a1.getWeight().compareTo(a2.getWeight());
+            }
+        });
+
+        //第三种排序方案（使用lambda）
+        list.sort((Apple a1, Apple a2) ->a1.getWeight().compareTo(a2.getWeight()));
+        //简略写法
+        list.sort((a1, a2) ->a1.getWeight().compareTo(a2.getWeight()));
+
+        //第四种排序方案
+        list.sort(comparing((apple) -> apple.getWeight()));
+
+        // 使用方法引
+        list.sort(comparing(Apple::getWeight));
     }
 
 }
