@@ -55,6 +55,11 @@ public class Dish {
         MEAT,FISH,OTHER
     }
 
+    @Override
+    public String toString() {
+        return  name ;
+    }
+
     public enum CaloriesLevel {
         DIET,
         NORMAL,
