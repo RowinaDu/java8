@@ -49,16 +49,16 @@ public class PartitioningShow {
         System.out.println(partitionPrimes(50));
 
     }
-    public static boolean isPrime(int cadidate){
-        return IntStream.range(2, cadidate).noneMatch(i -> cadidate % i == 0);
+    public static boolean isPrime(int candidate){
+        return IntStream.range(2, candidate).noneMatch(i -> candidate % i == 0);
     }
     //优化后的测评因子
-    public static boolean isPrimeForOptimize(int cadidate){
-        int cadidateRoot = (int)Math.sqrt((double)cadidate);
-        return IntStream.range(2, cadidateRoot).noneMatch(i -> cadidate % i == 0);
+    public static boolean isPrimeForOptimize(int candidate){
+        int candidateRoot = (int)Math.sqrt((double)candidate);
+        return IntStream.range(2, candidateRoot).noneMatch(i -> candidate % i == 0);
     }
     //给质数分区
     public static Map<Boolean, List<Integer>> partitionPrimes(int n){
-        return IntStream.rangeClosed(2, n).boxed().collect(partitioningBy(cadidate -> isPrime(cadidate)));
+        return IntStream.rangeClosed(2, n).boxed().collect(partitioningBy(candidate -> isPrime(candidate)));
     }
 }
