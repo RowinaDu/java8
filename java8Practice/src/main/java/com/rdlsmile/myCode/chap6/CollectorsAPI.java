@@ -67,7 +67,7 @@ public class CollectorsAPI {
     3.预定义收集器可以使用groupingBy对流中元素进行分组，或用partitioningBy进行分区
     4.收集器可以高效的复合起来，进行多级分组，分区和归约
     你可以实现Collector接口中定义的方法来开发你自己的收集器。
-    
+
      */
 
     /**
