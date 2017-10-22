@@ -2,6 +2,16 @@ package com.rdlsmile.myCode.chap7;
 
 import java.util.function.Consumer;
 
+/*
+第七章 小结
+1.内部迭代让你可以并行处理一个流，而无需在代码中显式使用和协调不同的线程
+2.虽然并行处理一个流很容易，却不能保证程序在所有的情况下运行的更快。并行人间的行为和性能有时是违背直觉的，因此一定要测量，
+    确保你并没有把程序拖得更慢
+3.像并行流那样对一个数据集并行执行操作可以提升性能，特别是要处理的元素数量庞大，或处理单个元素特别耗时的时候
+4.从性能角度看，使用正确的数据结构，如尽可能利用原始流而不是一般化的流，几乎总是比尝试并行化某些操作更为重要
+5.合并/分支框架让你得以用递归方式将可以并行的任务拆分成更小的任务，在不同的线程上执行，然后将各个子任务的结果合并起来生成整体结果
+6.Spliterator定义了并行流如何拆分它要遍历的数据。
+ */
 public class SpliteratorAPI {
     /*
     Spliterator是Java8中加入的另一个新接口，代表 可分迭代器（splitable iterator）,和Iterator一样Spliterator也用于遍历数据源
@@ -12,7 +22,7 @@ public class SpliteratorAPI {
     public interface Spliterator<T>{
         boolean tryAdvance(Consumer<? super T> action);
         Spliterator<T> trySplit();
-        long estinateSize();
+        long estimateSize();
         int characteristics();
     }
     /*
